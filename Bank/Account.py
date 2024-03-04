@@ -2,14 +2,11 @@ from decimal import Decimal
 
 
 class Account:
-    def __init__(self, name: str, pin: str, accountNumber: int):
+    def __init__(self, name: str, pin: str):
+        self.account = None
         self.name = name
         self.pin = pin
-        self.accountNumber = accountNumber
         self._balance = Decimal(0)
-
-
-
 
     @property
     def balance(self):
@@ -26,11 +23,17 @@ class Account:
             raise ValueError("Invalid amount for balance")
         self.balance -= Decimal(amount)
 
-    def deposit(self, depositAmount: Decimal):
-        self.balance += depositAmount#Decimal(depositAmount)
+    def deposit(self, depositAmount: Decimal) -> None:
+        self.balance += depositAmount  # Decimal(depositAmount)
 
-    def check_balance(self, pin):
+    def check_balance(self, pin) -> Decimal:
         return self._balance
 
-    def get_name(self):
-        return self.name
+    def set_account_number(self, account_number: int) -> None:
+        self.account_number = account_number
+
+    @classmethod
+    def is_valid_length_of(cls, pin):
+        return len(pin) == 10
+
+
