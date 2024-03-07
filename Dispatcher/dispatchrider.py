@@ -11,4 +11,5 @@ def calculate_riders_wage(number_of_delivery: int):
     elif number_of_delivery < 70:
         return number_of_delivery * 250 + 5000
     elif number_of_delivery >= 70:
+
         return number_of_delivery * 500 + 5000
