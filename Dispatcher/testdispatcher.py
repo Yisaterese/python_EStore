@@ -21,6 +21,6 @@ def test_calculate_riders_wages_for_70_delivery():
 
 
 def test_calculate_riders_wages_above_raise_error():
-    with pytest.raises( InvalidNumberOfDelivery) as info:
+    with pytest.raises(InvalidNumberOfDelivery) as info:
         calculate_riders_wage(188)
-    assert str(info.value) == "number of delivery above range"
+    assert str(info.value) == "number of delivery not within range"
