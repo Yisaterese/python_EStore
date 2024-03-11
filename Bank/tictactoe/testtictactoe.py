@@ -9,8 +9,5 @@ def test_the_number_of_cell_in_board_cells():
 
 def test_cellValue_picked_equals_the_enum_type():
     tictactoe = TicTacToe()
-    print(tictactoe.get_number_of_cells())
-    assert tictactoe.pickCell(3, CellValues.X) is CellValues.X
-
-
-
+    tictactoe.pickCell(9, CellValues.X)
+    assert tictactoe.get_board_cellValue()[2][2] == CellValues.X
