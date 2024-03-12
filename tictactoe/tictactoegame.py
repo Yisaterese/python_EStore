@@ -9,7 +9,7 @@ player_O = Player("O")
 current_player = player_X
 
 
-def player_turn(current_player):
+def player_turn(current_player:CellValues):
 
     if current_player == CellValues.X:
         return CellValues.X
@@ -17,7 +17,7 @@ def player_turn(current_player):
         return CellValues.O
 
 
-def execute_tictactoe_game(input_cell):
+def execute_tictactoe_game(input_cell:int):
     try:
         tictactoe.validate_board_range(input_cell)
     except InvalidBordCellException as ex:
@@ -28,6 +28,7 @@ def execute_tictactoe_game(input_cell):
 
             current_player.make_move(input_cell, CellValues.value)
             current_player.display_board_cells()
+            player_turn(CellValues)
             print("player" + current_player.getName() + "make move")
             if tictactoe.winner:
                 break
