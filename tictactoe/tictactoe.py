@@ -63,11 +63,6 @@ class TicTacToe:
         if is_won_by_third_column:
             return self.board_cells[0][2]
 
-    def validate_player_turn(self, input_cellvalue: CellValues):
-        if input_cellvalue == CellValues.X:
-            return CellValues.X
-        else:
-            return CellValues.O
 
     def get_win_by_diagonal(self):
         is_win_right__diagonal = self.board_cells[0][2] == self.board_cells[1][1] and self.board_cells[1][1] == \
