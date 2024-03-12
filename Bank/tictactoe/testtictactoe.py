@@ -37,9 +37,46 @@ def test_win_by_column_get_win():
     tictactoe = TicTacToe()
     tictactoe.pickCell(1, CellValues.X)
     tictactoe.pickCell(2, CellValues.O)
-    tictactoe.pickCell(3, CellValues.X)
-    tictactoe.pickCell(5, CellValues.O)
     tictactoe.pickCell(4, CellValues.X)
+    tictactoe.pickCell(5, CellValues.O)
+    tictactoe.pickCell(9, CellValues.X)
     tictactoe.pickCell(8, CellValues.O)
     assert tictactoe.get_win_by_column() == CellValues.O
+
+
+def test_win_by_diagonal_get_win():
+    tictactoe = TicTacToe()
+    tictactoe.pickCell(1, CellValues.X)
+    tictactoe.pickCell(3, CellValues.O)
+    tictactoe.pickCell(4, CellValues.X)
+    tictactoe.pickCell(5, CellValues.O)
+    tictactoe.pickCell(9, CellValues.X)
+    tictactoe.pickCell(7, CellValues.O)
+    assert tictactoe.get_win_by_diagonal() == CellValues.O
+
+
+def test_for_winner():
+    tictactoe = TicTacToe()
+    tictactoe.pickCell(1, CellValues.X)
+    tictactoe.pickCell(3, CellValues.O)
+    tictactoe.pickCell(4, CellValues.X)
+    tictactoe.pickCell(5, CellValues.O)
+    tictactoe.pickCell(9, CellValues.X)
+    tictactoe.pickCell(7, CellValues.O)
+    assert tictactoe.get_winner() == CellValues.O
+
+
+def test_for_draw_game():
+    tictactoe = TicTacToe()
+    tictactoe.pickCell(1, CellValues.X)
+    tictactoe.pickCell(3, CellValues.O)
+    tictactoe.pickCell(5, CellValues.X)
+    tictactoe.pickCell(6, CellValues.O)
+    tictactoe.pickCell(9, CellValues.X)
+    tictactoe.pickCell(7, CellValues.O)
+    tictactoe.pickCell(8, CellValues.X)
+    tictactoe.pickCell(2, CellValues.O)
+    tictactoe.pickCell(4, CellValues.X)
+
+    assert tictactoe.draw_game() == tictactoe.get_board_cellValue()
 
