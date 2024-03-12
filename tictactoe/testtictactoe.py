@@ -1,7 +1,7 @@
 import pytest
-from Bank.tictactoe.invalidBordCellException import InvalidBordCellException
-from Bank.tictactoe.tictactoe import TicTacToe
-from Bank.tictactoe.cellvalues import CellValues
+from tictactoe.invalidBordCellException import InvalidBordCellException
+from tictactoe.tictactoe import TicTacToe
+from tictactoe.cellvalues import CellValues
 
 
 def test_the_number_of_cell_in_board_cells():

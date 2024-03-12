@@ -1,5 +1,5 @@
-from Bank.tictactoe.cellvalues import CellValues
-from Bank.tictactoe.invalidBordCellException import InvalidBordCellException
+from tictactoe.cellvalues import CellValues
+from tictactoe.invalidBordCellException import InvalidBordCellException
 
 
 class TicTacToe:
@@ -8,7 +8,6 @@ class TicTacToe:
         self.board_cells = [[CellValues.EMPTY, CellValues.EMPTY, CellValues.EMPTY],
                             [CellValues.EMPTY, CellValues.EMPTY, CellValues.EMPTY],
                             [CellValues.EMPTY, CellValues.EMPTY, CellValues.EMPTY]]
-
 
     def get_number_of_cells(self) -> int:
         return len(self.board_cells) * 3
@@ -71,19 +70,21 @@ class TicTacToe:
             return CellValues.O
 
     def get_win_by_diagonal(self):
-        is_win_right__diagonal = self.board_cells[0][2] == self.board_cells[1][1] and self.board_cells[1][1] == self.board_cells[2][0]
-        is_win_by_left_diagonal = self.board_cells[0][0] == self.board_cells[1][1] and self.board_cells[1][1] == self.board_cells[2][2]
+        is_win_right__diagonal = self.board_cells[0][2] == self.board_cells[1][1] and self.board_cells[1][1] == \
+                                 self.board_cells[2][0]
+        is_win_by_left_diagonal = self.board_cells[0][0] == self.board_cells[1][1] and self.board_cells[1][1] == \
+                                  self.board_cells[2][2]
         if is_win_right__diagonal or is_win_by_left_diagonal:
             return self.board_cells[1][1]
 
     def get_winner(self):
 
-        if self.get_win_by_row() :
+        if self.get_win_by_row():
             return self.get_win_by_row()
         if self.get_win_by_column():
-            return  self.get_win_by_column()
+            return self.get_win_by_column()
         if self.get_win_by_diagonal():
-            return  self.get_win_by_diagonal()
+            return self.get_win_by_diagonal()
 
     def draw_game(self):
         if not self.get_win_by_row() or self.get_win_by_column() or self.get_win_by_diagonal():
