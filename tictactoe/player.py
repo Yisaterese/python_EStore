@@ -19,3 +19,6 @@ class Player:
                 print(self.tictactoe.board_cells[row][col])
             print()
             print("___________________________")
+
+    def getName(self):
+        return self.name
